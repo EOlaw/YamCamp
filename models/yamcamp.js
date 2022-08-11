@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const YamcampSchema = new Schema({
     title: String,
+    image: String,
     price: String,
     description: String,
     location: String

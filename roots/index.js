@@ -1,6 +1,6 @@
 //const mongoose = require('mongoose');
 const cities = require('./cities');
-const { places, descriptors } = require('./seedHelpers');
+const { places, descriptors } = require('./rootHelpers');
 const Yamcamp = require('../models/yamcamp');
 
 //Connection to Mongoose
@@ -15,7 +15,7 @@ db.once("open", () => {
 const sample = array => array[Math.floor(Math.random() * array.length)];
 
 
-const seedDB = async () => {
+const rootDB = async () => {
     await Yamcamp.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
@@ -23,7 +23,7 @@ const seedDB = async () => {
         const yam = new Yamcamp({
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251',
+            image: ' https://source.unsplash.com/collection/483251 ',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo optio alias voluptatem deleniti explicabo quas error, nisi dolor voluptatum deserunt dicta inventore ab blanditiis et dolorum similique quibusdam quos ea.',
             price
         })
@@ -31,6 +31,6 @@ const seedDB = async () => {
     }
 }
 
-seedDB().then(() => {
+rootDB().then(() => {
     mongoose.connection.close();
 })
