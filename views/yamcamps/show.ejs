@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show</title>
-</head>
-
-<body>
+<% layout('/layouts/boilerplate') %>
     <h1><%= yamcamp.title %></h1>
     <h2><%= yamcamp.location %></h2>
+    <img src="<%= yamcamp.image %>" alt="">
+    <p> <%= yamcamp.description %></p>
     <p> <a href="/yamcampS/<%=yamcamp._id%>/edit">Edit</a>
     </p>
     <p>
@@ -20,6 +13,3 @@
     <footer>
         <a href="/yamcamps">All Yamcamps</a>
     </footer>
-</body>
-
-</html>

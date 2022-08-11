@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Yamcamp</title>
-</head>
-
-<body>
+<% layout('/layouts/boilerplate') %>
     <form action="/yamcamps" method="POST">
         <div>
             <label for="title">Title</label>
@@ -20,7 +11,3 @@
         <button>Add Yamcamp</button>
     </form>
     <a href="/yamcamps">All Yamcamps</a>
-
-</body>
-
-</html>

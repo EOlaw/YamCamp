@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Yamcamp</title>
-</head>
-
-<body>
+<% layout('/layouts/boilerplate') %>
     <h1>Edit Yamcamp</h1>
-    <form action="/campgrounds/<%=yamcamp._id%>?_method=PUT" method="POST">
+    <form action="/yamcamps/<%=yamcamp._id%>?_method=PUT" method="POST">
         <div>
             <label for="title">Title</label>
             <input type="text" id="title" name="yamcamp[title]" value="<%=yamcamp.title %>">
@@ -21,7 +12,3 @@
         <button>Update Yamcamp</button>
     </form>
     <a href="/yamcamps/<%= yamcamp._id%>">Back To Yamcamp</a>
-
-</body>
-
-</html>

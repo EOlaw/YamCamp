@@ -2,11 +2,13 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const ejsMate = require('ejs-mate');
 //const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Yamcamp = require('./models/yamcamp')
 
 //set the view engine to ejs
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
