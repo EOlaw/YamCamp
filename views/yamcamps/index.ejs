@@ -3,8 +3,20 @@
     <div>
         <a href="/yamcamps/new">Add Yamcamps</a>
     </div>
-    <ul>
         <% for (let yamcamp of yamcamps){%>
-        <li><a href="/yamcamps/<%= yamcamp._id %>"><%= yamcamp.title %></a></li>
+            <div class="card" mb-3>
+                <div class="col-md-4">
+                    <img class="img-fluid" src=" <%= yamcamp.image %> " alt="">
+                </div>
+                <div class="col-mg-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> <%= yamcamp.title %> </h5>
+                        <p class="card-text"> <%= yamcamp.description %> </p>
+                        <p class="card-text">
+                            <small class="text-muted"> <%= yamcamp.location %> </small>
+                        </p>
+                        <a href="/yamcamps/<%=yamcamp._id%>" class="btn btn-primary">View <%= yamcamp.title %></a>
+                    </div>
+                </div>
+            </div>
         <% }%>
-    </ul>
