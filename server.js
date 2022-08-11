@@ -14,8 +14,8 @@ app.set('views', path.join(__dirname, 'views'))
 
 
 //configure the app
-//app.use(express.json());
-//app.use(express.static('public'))
+app.use(express.json());
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 //Use to view images on the websites
