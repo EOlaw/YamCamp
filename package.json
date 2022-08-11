@@ -1,4 +1,10 @@
 {
+  "name": "YamCamp",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
