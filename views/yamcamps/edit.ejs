@@ -2,35 +2,50 @@
 <div class="row">
     <h1 class="text-center">Edit Yamcamp</h1>
     <div class="col-6 offset-3">
-        <form action="/yamcamps/<%=yamcamp._id%>?_method=PUT" method="POST">
+        <form action="/yamcamps/<%=yamcamp._id%>?_method=PUT" method="POST" class="validated-form" novalidate>
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="yamcamp[title]"
-                    value="<%=yamcamp.title %>">
+                    value="<%=yamcamp.title %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
                 <input class="form-control" type="text" id="location" name="yamcamp[location]"
-                    value="<%=yamcamp.location %>">
+                    value="<%=yamcamp.location %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image Url</label>
                 <input class="form-control" type="text" id="image" name="yamcamp[image]"
-                    value=" <%=yamcamp.image %>">
+                    value=" <%=yamcamp.image %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="price">yamcamp Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
-                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
-                        aria-describedby="price-label" name="yamcamp[price]" value="<%=yamcamp.price %>">
+                    <input type="number" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        aria-describedby="price-label" name="yamcamp[price]" value="<%=yamcamp.price %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description"
-                    name="yamcamp[description]"><%= yamcamp.description%></textarea>
+                    name="yamcamp[description]" required><%= yamcamp.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
             </div>
             <div class="mb-3">
                 <button class="btn btn-info">Update Yamcamp</button>
