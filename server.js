@@ -33,6 +33,12 @@ db.once("open", () => {
 
 
 
+//Basic Error Handler
+app.use((err, req, res, next) => {
+    res.send('Oh Boy, shiii went wrong!!!')
+})
+
+
 //create routes
 app.get('/', (req, res) => {
     res.render('home')
@@ -45,10 +51,14 @@ app.get('/yamcamps/new', (req, res) => {
     res.render('yamcamps/new');
 })
 
-app.post('/yamcamps', async (req, res) => {
-    const yamcamp = new Yamcamp(req.params.yamcamp);
-    await yamcamp.save();
-    res.redirect(`/yamcamps/${yamcamp._id}`)
+app.post('/yamcamps', async (req, res, next) => {
+    try {
+        const yamcamp = new Yamcamp(req.params.yamcamp);
+        await yamcamp.save();
+        res.redirect(`/yamcamps/${yamcamp._id}`)
+    } catch (e) {
+        next(e);
+    }
 })
 
 app.get('/yamcamps/:id', async (req, res) => {
@@ -73,11 +83,6 @@ app.delete('/yamcamps/:id', async (req, res) => {
     res.redirect('/yamcamps');
 })
 
-
-//Basic Error Handler
-app.use((err, req, res, next) => {
-    res.send('Oh Boy, shiii went wrong!!!')
-})
 
 
 //
